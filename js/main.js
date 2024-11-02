@@ -14,6 +14,7 @@ const interiorImage = document.getElementById('interior-image');
 const wheeButtonsDiv = document.getElementById('wheel-buttons');
 const performanceBtn = document.getElementById('performance-btn');
 const totalPriceElement = document.getElementById('total-price');
+const selfDrivingCheckbox = document.getElementById('self-driving-checkbox');
 
 // # Global States
 let selectedExteriorColor = 'Stealth Grey';
@@ -35,6 +36,10 @@ const updateTotalPrice = () => {
   // Update price based on modifications
   if (modifyOptions.isCustomizedWheels) {
     totalPrice += PRICING.CUSTOMIZED_WHEELS;
+  }
+
+  if (modifyOptions.isFullSelfDriving) {
+    totalPrice += PRICING.FULL_SELF_DRIVING;
   }
 
   if (modifyOptions.isPerformancePackage) {
@@ -115,6 +120,15 @@ const handleWheelButtonClick = (event) => {
   updateTotalPrice();
 };
 
+// - Handle full self driving selection
+const handleSelfDrivingCheckbox = () => {
+  // Toggle the full self driving option
+  modifyOptions.isFullSelfDriving = !modifyOptions.isFullSelfDriving;
+
+  // Update total price
+  updateTotalPrice();
+};
+
 // - Handle performance package selection
 const handlePerformanceButtonClick = () => {
   // Toggle the button styles
@@ -135,6 +149,7 @@ window.addEventListener('scroll', () => requestAnimationFrame(handleTopBar)); //
 exteriorColorDiv.addEventListener('click', handleColorButtonClick);
 interiorColorDiv.addEventListener('click', handleColorButtonClick);
 wheeButtonsDiv.addEventListener('click', handleWheelButtonClick);
+selfDrivingCheckbox.addEventListener('change', handleSelfDrivingCheckbox);
 performanceBtn.addEventListener('click', handlePerformanceButtonClick);
 
 // # Initializations
