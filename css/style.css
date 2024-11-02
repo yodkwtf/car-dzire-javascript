@@ -8,3 +8,16 @@
 .btn-selected:hover {
   transform: scale(1) !important;
 }
+
+/* top bar */
+#top-bar {
+  transition: transform 0.5s ease-in-out;
+}
+
+#top-bar.visible-top-bar {
+  transform: translateY(0);
+}
+
+#top-bar.hidden-top-bar {
+  transform: translateY(-100%);
+}
