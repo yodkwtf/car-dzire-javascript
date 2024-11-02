@@ -8,6 +8,15 @@ export const EXTERIOR_IMAGES = {
   'Quick Silver': './images/model-y-quicksilver.jpg',
 };
 
+export const PERFORMANCE_WHEEL_IMAGES = {
+  'Stealth Grey': './images/model-y-stealth-grey-performance.jpg',
+  'Pearl White': './images/model-y-pearl-white-performance.jpg',
+  'Deep Blue': './images/model-y-deep-blue-metallic-performance.jpg',
+  'Solid Black': './images/model-y-solid-black-performance.jpg',
+  'Ultra Red': './images/model-y-ultra-red-performance.jpg',
+  'Quick Silver': './images/model-y-quicksilver-performance.jpg',
+};
+
 export const INTERIOR_IMAGES = {
   // TODO: Change model
   Dark: './images/model-y-interior-dark.jpg',
