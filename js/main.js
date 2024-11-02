@@ -15,6 +15,7 @@ const wheeButtonsDiv = document.getElementById('wheel-buttons');
 const performanceBtn = document.getElementById('performance-btn');
 const totalPriceElement = document.getElementById('total-price');
 const selfDrivingCheckbox = document.getElementById('self-driving-checkbox');
+const accessoryCheckboxes = document.querySelectorAll('.accessory-checkbox');
 
 // # Global States
 let selectedExteriorColor = 'Stealth Grey';
@@ -22,7 +23,6 @@ const modifyOptions = {
   isCustomizedWheels: false,
   isPerformancePackage: false,
   isFullSelfDriving: false,
-  accessories: [],
 };
 
 let totalPrice = PRICING.BASE_PRICE;
@@ -37,14 +37,24 @@ const updateTotalPrice = () => {
   if (modifyOptions.isCustomizedWheels) {
     totalPrice += PRICING.CUSTOMIZED_WHEELS;
   }
-
   if (modifyOptions.isFullSelfDriving) {
     totalPrice += PRICING.FULL_SELF_DRIVING;
   }
-
   if (modifyOptions.isPerformancePackage) {
     totalPrice += PRICING.PERFORMANCE_PACKAGE;
   }
+  accessoryCheckboxes.forEach((checkbox) => {
+    // extract accessory label
+    const accessory = checkbox
+      .closest('label')
+      .querySelector('span')
+      .textContent.trim();
+
+    // add accessory price if checked
+    if (checkbox.checked) {
+      totalPrice += PRICING.ACCESSORIES[accessory];
+    }
+  });
 
   // Update price in UI
   totalPriceElement.textContent = totalPrice.toLocaleString('en-IN', {
@@ -151,6 +161,10 @@ interiorColorDiv.addEventListener('click', handleColorButtonClick);
 wheeButtonsDiv.addEventListener('click', handleWheelButtonClick);
 selfDrivingCheckbox.addEventListener('change', handleSelfDrivingCheckbox);
 performanceBtn.addEventListener('click', handlePerformanceButtonClick);
+
+accessoryCheckboxes.forEach((checkbox) =>
+  checkbox.addEventListener('change', updateTotalPrice)
+);
 
 // # Initializations
 updateTotalPrice();
