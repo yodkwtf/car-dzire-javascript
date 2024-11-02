@@ -3,6 +3,7 @@ import {
   INTERIOR_IMAGES,
   CUSTOMIZED_WHEELS_IMAGES,
   PRICING,
+  LOAN_BREAKUP,
 } from './constants.js';
 
 // # Selectors
@@ -12,10 +13,12 @@ const interiorColorDiv = document.getElementById('interior-buttons');
 const exteriorImage = document.getElementById('exterior-image');
 const interiorImage = document.getElementById('interior-image');
 const wheeButtonsDiv = document.getElementById('wheel-buttons');
-const performanceBtn = document.getElementById('performance-btn');
-const totalPriceElement = document.getElementById('total-price');
 const selfDrivingCheckbox = document.getElementById('self-driving-checkbox');
+const performanceBtn = document.getElementById('performance-btn');
 const accessoryCheckboxes = document.querySelectorAll('.accessory-checkbox');
+const totalPriceElement = document.getElementById('total-price');
+const downPaymentElement = document.getElementById('down-payment');
+const monthlyPaymentElement = document.getElementById('monthly-payment');
 
 // # Global States
 let selectedExteriorColor = 'Stealth Grey';
@@ -58,6 +61,36 @@ const updateTotalPrice = () => {
 
   // Update price in UI
   totalPriceElement.textContent = totalPrice.toLocaleString('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+  });
+
+  // Update price breakdown
+  updatePriceBreakdown();
+};
+
+// - Update down payment and monthly payment
+const updatePriceBreakdown = () => {
+  // calculate down payment
+  const downPayment = totalPrice * LOAN_BREAKUP.DOWN_PAYMENT_PERCENTAGE;
+  downPaymentElement.textContent = downPayment.toLocaleString('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+  });
+
+  // calculate monthly payment (assuming 5% interest rate for 5 years)
+  const loanAmount = totalPrice - downPayment;
+  const monthlyInterestRate = LOAN_BREAKUP.INTEREST_RATE / 12;
+  const numberOfPayments = LOAN_BREAKUP.TENURE_YEARS * 12;
+
+  // formula for monthly payment -> P * r * (1 + r)^n / ((1 + r)^n - 1)
+  const monthlyPayment =
+    (loanAmount *
+      monthlyInterestRate *
+      Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
+    (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+
+  monthlyPaymentElement.textContent = monthlyPayment.toLocaleString('en-IN', {
     style: 'currency',
     currency: 'INR',
   });

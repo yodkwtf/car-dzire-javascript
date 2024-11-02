@@ -36,3 +36,10 @@ export const PRICING = {
     'Center Console Trays': 5_000,
   },
 };
+
+// Loan details
+export const LOAN_BREAKUP = {
+  DOWN_PAYMENT_PERCENTAGE: 0.1, // 10%
+  TENURE_YEARS: 5, // 5 years
+  INTEREST_RATE: 0.05, // 5%
+};
