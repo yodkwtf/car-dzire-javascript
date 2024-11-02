@@ -1,7 +1,8 @@
 import {
   EXTERIOR_IMAGES,
   INTERIOR_IMAGES,
-  PERFORMANCE_WHEEL_IMAGES,
+  CUSTOMIZED_WHEELS_IMAGES,
+  PRICING,
 } from './constants.js';
 
 // # Selectors
@@ -12,14 +13,41 @@ const exteriorImage = document.getElementById('exterior-image');
 const interiorImage = document.getElementById('interior-image');
 const wheeButtonsDiv = document.getElementById('wheel-buttons');
 const performanceBtn = document.getElementById('performance-btn');
+const totalPriceElement = document.getElementById('total-price');
 
 // # Global States
 let selectedExteriorColor = 'Stealth Grey';
-const performanceOptions = {
-  isPerformanceWheelSelected: false,
+const modifyOptions = {
+  isCustomizedWheels: false,
+  isPerformancePackage: false,
+  isFullSelfDriving: false,
+  accessories: [],
 };
 
+let totalPrice = PRICING.BASE_PRICE;
+
 // # Functions
+// - Update total price in UI
+const updateTotalPrice = () => {
+  // reset the total price
+  totalPrice = PRICING.BASE_PRICE;
+
+  // Update price based on modifications
+  if (modifyOptions.isCustomizedWheels) {
+    totalPrice += PRICING.CUSTOMIZED_WHEELS;
+  }
+
+  if (modifyOptions.isPerformancePackage) {
+    totalPrice += PRICING.PERFORMANCE_PACKAGE;
+  }
+
+  // Update price in UI
+  totalPriceElement.textContent = totalPrice.toLocaleString('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+  });
+};
+
 // - Handle top bar on scroll
 const handleTopBar = () => {
   const isTop = window.scrollY === 0;
@@ -29,8 +57,8 @@ const handleTopBar = () => {
 
 // - Update exterior image based on the selected color and wheel
 const updateExteriorImage = () => {
-  exteriorImage.src = performanceOptions.isPerformanceWheelSelected
-    ? PERFORMANCE_WHEEL_IMAGES[selectedExteriorColor]
+  exteriorImage.src = modifyOptions.isCustomizedWheels
+    ? CUSTOMIZED_WHEELS_IMAGES[selectedExteriorColor]
     : EXTERIOR_IMAGES[selectedExteriorColor];
 };
 
@@ -79,17 +107,27 @@ const handleWheelButtonClick = (event) => {
   event.target.classList.add('bg-gray-700', 'text-white');
 
   // Change wheel image
-  performanceOptions.isPerformanceWheelSelected =
-    event.target.textContent.includes('Performance');
+  modifyOptions.isCustomizedWheels =
+    event.target.textContent.includes('Customized');
   updateExteriorImage();
+
+  // Update total price
+  updateTotalPrice();
 };
 
 // - Handle performance package selection
 const handlePerformanceButtonClick = () => {
+  // Toggle the button styles
   performanceBtn.classList.toggle('bg-gray-700');
   performanceBtn.classList.toggle('text-white');
   performanceBtn.classList.toggle('scale-95');
   setTimeout(() => performanceBtn.classList.toggle('scale-95'), 100);
+
+  // Toggle the performance package
+  modifyOptions.isPerformancePackage = !modifyOptions.isPerformancePackage;
+
+  // Update total price
+  updateTotalPrice();
 };
 
 // # Event Listeners
@@ -98,3 +136,6 @@ exteriorColorDiv.addEventListener('click', handleColorButtonClick);
 interiorColorDiv.addEventListener('click', handleColorButtonClick);
 wheeButtonsDiv.addEventListener('click', handleWheelButtonClick);
 performanceBtn.addEventListener('click', handlePerformanceButtonClick);
+
+// # Initializations
+updateTotalPrice();
