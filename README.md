@@ -4,7 +4,7 @@ CarDzire is a Tesla-inspired car configuration clone built using HTML, CSS, and 
 
 ## Live Preview
 
-Please visit [cardzire-dk.netlify.app](cardzire-dk.netlify.app) to see the live preview of the site.
+Please visit [CarDzire - Live](https://cardzire-dk.netlify.app) to see the site's live preview.
 
 ![CarDzire Preview](./images/cover.jpg)
 
