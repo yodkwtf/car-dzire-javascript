@@ -9,15 +9,6 @@ export const EXTERIOR_IMAGES = {
   'Swift Silver': './images/swift-silver.png',
 };
 
-// export const CUSTOMIZED_WHEELS_IMAGES = {
-//   'Stealth Grey': './images/model-y-stealth-grey-performance.jpg',
-//   'Pearl White': './images/model-y-pearl-white-performance.jpg',
-//   'Deep Blue': './images/model-y-deep-blue-metallic-performance.jpg',
-//   'Solid Black': './images/model-y-solid-black-performance.jpg',
-//   'Ultra Red': './images/model-y-ultra-red-performance.jpg',
-//   'Quick Silver': './images/model-y-quicksilver-performance.jpg',
-// };
-
 export const INTERIOR_IMAGES = {
   Dark: './images/swift-interior-dark.jpg',
   Light: './images/swift-interior-light.jpg',
@@ -25,7 +16,7 @@ export const INTERIOR_IMAGES = {
 
 // Pricing for the car
 export const PRICING = {
-  BASE_PRICE: 7_24_900,
+  BASE_PRICE: 6_24_900,
   CUSTOMIZED_WHEELS: 20_000,
   FULL_SELF_DRIVING: 1_50_000,
   PERFORMANCE_PACKAGE: 30_000,
