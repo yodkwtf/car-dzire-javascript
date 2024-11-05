@@ -149,10 +149,10 @@ const handleWheelButtonClick = (event) => {
   // Highlight the selected button
   const allButtons = event.currentTarget.querySelectorAll('button');
   allButtons.forEach((btn) => {
-    btn.classList.remove('bg-gray-700', 'text-white');
-    btn.classList.add('bg-gray-200');
+    btn.classList.remove('bg-pink-700', 'text-white');
+    btn.classList.add('bg-pink-200');
   });
-  event.target.classList.add('bg-gray-700', 'text-white');
+  event.target.classList.add('bg-pink-700', 'text-white');
 
   // Change wheel image
   modifyOptions.isCustomizedWheels =
@@ -175,7 +175,7 @@ const handleSelfDrivingCheckbox = () => {
 // - Handle performance package selection
 const handlePerformanceButtonClick = () => {
   // Toggle the button styles
-  performanceBtn.classList.toggle('bg-gray-700');
+  performanceBtn.classList.toggle('bg-pink-700');
   performanceBtn.classList.toggle('text-white');
   performanceBtn.classList.toggle('scale-95');
   setTimeout(() => performanceBtn.classList.toggle('scale-95'), 100);
