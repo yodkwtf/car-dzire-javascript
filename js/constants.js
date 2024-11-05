@@ -19,9 +19,8 @@ export const EXTERIOR_IMAGES = {
 // };
 
 export const INTERIOR_IMAGES = {
-  // TODO: Change model
-  Dark: './images/model-y-interior-dark.jpg',
-  Light: './images/model-y-interior-light.jpg',
+  Dark: './images/swift-interior-dark.jpg',
+  Light: './images/swift-interior-light.jpg',
 };
 
 // Pricing for the car
