@@ -1,9 +1,10 @@
 import {
   EXTERIOR_IMAGES,
   INTERIOR_IMAGES,
-  CUSTOMIZED_WHEELS_IMAGES,
+  // CUSTOMIZED_WHEELS_IMAGES,
   PRICING,
   LOAN_BREAKUP,
+  DEFAULT_EXTERIOR_COLOR,
 } from './constants.js';
 
 // # Selectors
@@ -12,7 +13,7 @@ const exteriorColorDiv = document.getElementById('exterior-buttons');
 const interiorColorDiv = document.getElementById('interior-buttons');
 const exteriorImage = document.getElementById('exterior-image');
 const interiorImage = document.getElementById('interior-image');
-const wheeButtonsDiv = document.getElementById('wheel-buttons');
+// const wheeButtonsDiv = document.getElementById('wheel-buttons');
 const selfDrivingCheckbox = document.getElementById('self-driving-checkbox');
 const performanceBtn = document.getElementById('performance-btn');
 const accessoryCheckboxes = document.querySelectorAll('.accessory-checkbox');
@@ -21,9 +22,9 @@ const downPaymentElement = document.getElementById('down-payment');
 const monthlyPaymentElement = document.getElementById('monthly-payment');
 
 // # Global States
-let selectedExteriorColor = 'Stealth Grey';
+let selectedExteriorColor = DEFAULT_EXTERIOR_COLOR;
 const modifyOptions = {
-  isCustomizedWheels: false,
+  // isCustomizedWheels: false,
   isPerformancePackage: false,
   isFullSelfDriving: false,
 };
@@ -37,9 +38,9 @@ const updateTotalPrice = () => {
   totalPrice = PRICING.BASE_PRICE;
 
   // Update price based on modifications
-  if (modifyOptions.isCustomizedWheels) {
-    totalPrice += PRICING.CUSTOMIZED_WHEELS;
-  }
+  // if (modifyOptions.isCustomizedWheels) {
+  //   totalPrice += PRICING.CUSTOMIZED_WHEELS;
+  // }
   if (modifyOptions.isFullSelfDriving) {
     totalPrice += PRICING.FULL_SELF_DRIVING;
   }
@@ -142,26 +143,26 @@ const handleColorButtonClick = (event) => {
   }
 };
 
-// - Handle wheel selection
-const handleWheelButtonClick = (event) => {
-  if (!event.target.tagName === 'BUTTON') return;
+// // - Handle wheel selection
+// const handleWheelButtonClick = (event) => {
+//   if (!event.target.tagName === 'BUTTON') return;
 
-  // Highlight the selected button
-  const allButtons = event.currentTarget.querySelectorAll('button');
-  allButtons.forEach((btn) => {
-    btn.classList.remove('bg-pink-700', 'text-white');
-    btn.classList.add('bg-pink-200');
-  });
-  event.target.classList.add('bg-pink-700', 'text-white');
+//   // Highlight the selected button
+//   const allButtons = event.currentTarget.querySelectorAll('button');
+//   allButtons.forEach((btn) => {
+//     btn.classList.remove('bg-red-700', 'text-white');
+//     btn.classList.add('bg-red-200');
+//   });
+//   event.target.classList.add('bg-red-700', 'text-white');
 
-  // Change wheel image
-  modifyOptions.isCustomizedWheels =
-    event.target.textContent.includes('Customized');
-  updateExteriorImage();
+//   // Change wheel image
+//   modifyOptions.isCustomizedWheels =
+//     event.target.textContent.includes('Customized');
+//   updateExteriorImage();
 
-  // Update total price
-  updateTotalPrice();
-};
+//   // Update total price
+//   updateTotalPrice();
+// };
 
 // - Handle full self driving selection
 const handleSelfDrivingCheckbox = () => {
@@ -175,7 +176,7 @@ const handleSelfDrivingCheckbox = () => {
 // - Handle performance package selection
 const handlePerformanceButtonClick = () => {
   // Toggle the button styles
-  performanceBtn.classList.toggle('bg-pink-700');
+  performanceBtn.classList.toggle('bg-red-700');
   performanceBtn.classList.toggle('text-white');
   performanceBtn.classList.toggle('scale-95');
   setTimeout(() => performanceBtn.classList.toggle('scale-95'), 100);
@@ -191,7 +192,7 @@ const handlePerformanceButtonClick = () => {
 window.addEventListener('scroll', () => requestAnimationFrame(handleTopBar)); // save resources and improve performance
 exteriorColorDiv.addEventListener('click', handleColorButtonClick);
 interiorColorDiv.addEventListener('click', handleColorButtonClick);
-wheeButtonsDiv.addEventListener('click', handleWheelButtonClick);
+// wheeButtonsDiv.addEventListener('click', handleWheelButtonClick);
 selfDrivingCheckbox.addEventListener('change', handleSelfDrivingCheckbox);
 performanceBtn.addEventListener('click', handlePerformanceButtonClick);
 

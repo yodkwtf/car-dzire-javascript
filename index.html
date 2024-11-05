@@ -18,7 +18,7 @@
 
 <body>
   <!-- top alert -->
-  <div id="top-bar" class="bg-pink-100 fixed top-0 right-0 left-0 py-2">
+  <div id="top-bar" class="bg-red-100 fixed top-0 right-0 left-0 py-2 z-30">
     <p class="text-center py-2 font-semibold">
       EMI available at 0% interest for registered buyers. <a href="/" class="text-blue-500">Learn More</a>
     </p>
@@ -28,7 +28,7 @@
   <!-- header -->
   <header class="max-w-screen-2xl mx-auto flex justify-between items-center px-10 py-6 mt-12">
     <a href="/">
-      <h4 class="font-bold text-2xl tracking-wide">Car<span class="text-pink-700">Dzire</span></h4>
+      <h4 class="font-bold text-2xl tracking-wide">Car<span class="text-red-700">Dzire</span></h4>
     </a>
     <button>
       <i class="fa-solid fa-globe"></i>
@@ -42,12 +42,12 @@
       <div class="sticky top-24">
         <!-- Exterior Image -->
         <div class="h-96 bg-transparent flex items-center justify-center overflow-hidden mb-4">
-          <img src="./images/swift-red.png" alt="Swift Red" class="max-w-full h-auto transform scale-125"
-            id="exterior-image" />
+          <img src="./images/swift-red.png" alt="Swift Red"
+            class="z-10 max-w-full h-auto transform scale-125 object-cover" id="exterior-image" />
         </div>
 
         <!-- Interior Image -->
-        <div class="h-96 bg-pink-200 flex items-center justify-center overflow-hidden mb-4">
+        <div class="h-96 bg-red-200 flex items-center justify-center overflow-hidden mb-4">
           <img src="./images/model-y-interior-dark.jpg" alt="Model Y Interior" class="max-w-full h-auto"
             id="interior-image" />
         </div>
@@ -55,36 +55,32 @@
     </section>
 
     <!-- Controls Section -->
-    <aside class="w-full md:w-1/3 pl-0 md:pl-8 mt-6 md:mt-0 z-2">
+    <aside class="w-full md:w-1/3 pl-0 md:pl-8 mt-6 md:mt-0 z-20">
       <h1 class="text-5xl text-center font-bold mb-5">Suzuki Swift</h1>
-      <h2 class="text-xl text-center font-light">Customize Your Car</h2>
+      <h2 class="text-xl text-center font-light">Design as you Dzire</h2>
 
       <!-- Exterior Buttons -->
       <div class="my-8" id="exterior-buttons">
         <h3 class="font-semibold mb-2">Exterior Color</h3>
-        <div class="flex space-x-4">
+        <div class="flex space-x-8">
           <button class="btn-selected transition-transform duration-300 hover:scale-110">
-            <img src="./images/button-stealth-grey.avif" alt="Stealth Grey" class="w-22">
+            <img src="./images/btn-red.avif" alt="Swift Red" class="w-24">
           </button>
 
           <button class="transition-transform duration-300 hover:scale-110">
-            <img src="./images/button-pearl-white.avif" alt="Pearl White" class="w-22">
+            <img src="./images/btn-blue.avif" alt="Swift Blue" class="w-24">
           </button>
 
           <button class="transition-transform duration-300 hover:scale-110">
-            <img src="./images/button-deep-blue-metallic.avif" alt="Deep Blue" class="w-22">
+            <img src="./images/btn-white.avif" alt="Swift White" class="w-24">
           </button>
 
           <button class="transition-transform duration-300 hover:scale-110">
-            <img src="./images/button-solid-black.avif" alt="Solid Black" class="w-22">
+            <img src="./images/btn-black.avif" alt="Swift Black" class="w-24">
           </button>
 
           <button class="transition-transform duration-300 hover:scale-110">
-            <img src="./images/button-ultra-red.avif" alt="Ultra Red" class="w-22">
-          </button>
-
-          <button class="transition-transform duration-300 hover:scale-110">
-            <img src="./images/button-quicksilver.avif" alt="Quick Silver" class="w-22">
+            <img src="./images/btn-silver.avif" alt="Swift Silver" class="w-24">
           </button>
         </div>
       </div>
@@ -94,11 +90,11 @@
         <h3 class="font-semibold mb-2">Interior Color</h3>
         <div class="flex space-x-4">
           <button class="btn-selected transition-transform duration-300 hover:scale-110">
-            <img src="./images/button-dark.avif" alt="Dark" class="w-12">
+            <img src="./images/btn-dark.avif" alt="Dark" class="w-12">
           </button>
 
           <button class="transition-transform duration-300 hover:scale-110">
-            <img src="./images/button-light.avif" alt="Light" class="w-12">
+            <img src="./images/btn-light.avif" alt="Light" class="w-12">
           </button>
         </div>
       </div>
@@ -107,22 +103,21 @@
       <!-- <div class="mb-8" id="wheel-buttons">
         <h3 class="font-semibold mb-2">Wheels</h3>
         <button
-          class="w-full py-4 mb-2 bg-pink-700 hover:bg-pink-600 hover:text-white text-white rounded-lg transition-colors duration-300">
+          class="w-full py-4 mb-2 bg-red-700 hover:bg-red-600 hover:text-white text-white rounded-lg transition-colors duration-300">
           Standard Wheels
         </button>
         <button
-          class="w-full py-4 mb-2 bg-pink-200 hover:bg-pink-600 hover:text-white rounded-lg transition-colors duration-300">
+          class="w-full py-4 mb-2 bg-red-200 hover:bg-red-600 hover:text-white rounded-lg transition-colors duration-300">
           Customized Wheels (₹20,000)
         </button>
       </div> -->
 
       <!-- Self Driving Checkbox -->
       <div class="border p-4 mb-8 rounded-lg shadow">
-        <!-- TODO: Change Self Driving to 'Automatic Gear System for India' -->
-        <h3 class="font-semibold mb-2">Full Self-Driving</h3>
+        <h3 class="font-semibold mb-2">Fully Automatic</h3>
         <label class="flex items-center space-x-3">
           <input type="checkbox" id="self-driving-checkbox" class="cursor-pointer form-checkbox w-5 h-5 text-blue-600">
-          <span>Add Full Self-Driving for ₹1,55,000</span>
+          <span>Add Auto Gear System for ₹1,55,000</span>
         </label>
       </div>
 
@@ -130,7 +125,7 @@
       <div class="mb-8">
         <h3 class="font-semibold mb-2">Performance Package</h3>
         <button id="performance-btn"
-          class="w-full py-4 rounded-lg bg-pink-200 transition-transform duration-300 hover:bg-pink-600 hover:text-white">
+          class="w-full py-4 rounded-lg bg-red-200 transition-background duration-300 hover:bg-red-600 hover:text-white">
           Performance Upgrade (₹30,000)
         </button>
       </div>
@@ -179,7 +174,7 @@
             Down Payment: <span id="down-payment" class="font-bold">₹72,490.00</span>
           </p>
           <p>
-            Loan Term: <span id="loan-term" class="font-bold">60 Months</span>
+            Loan Term: <span id="loan-term" class="font-bold">5 Years</span>
           </p>
           <p>
             Interest Rate: <span id="interest-rate" class="font-bold">3%</span>

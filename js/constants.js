@@ -1,22 +1,22 @@
+export const DEFAULT_EXTERIOR_COLOR = 'Swift Red';
+
 // Color options for the car
 export const EXTERIOR_IMAGES = {
-  // TODO: Change images and the car model
   'Swift Red': './images/swift-red.png',
   'Swift Blue': './images/swift-blue.png',
   'Swift White': './images/swift-white.png',
   'Swift Black': './images/swift-black.png',
   'Swift Silver': './images/swift-silver.png',
-  'Swift Black and White': './images/swift-white-black.png',
 };
 
-export const CUSTOMIZED_WHEELS_IMAGES = {
-  'Stealth Grey': './images/model-y-stealth-grey-performance.jpg',
-  'Pearl White': './images/model-y-pearl-white-performance.jpg',
-  'Deep Blue': './images/model-y-deep-blue-metallic-performance.jpg',
-  'Solid Black': './images/model-y-solid-black-performance.jpg',
-  'Ultra Red': './images/model-y-ultra-red-performance.jpg',
-  'Quick Silver': './images/model-y-quicksilver-performance.jpg',
-};
+// export const CUSTOMIZED_WHEELS_IMAGES = {
+//   'Stealth Grey': './images/model-y-stealth-grey-performance.jpg',
+//   'Pearl White': './images/model-y-pearl-white-performance.jpg',
+//   'Deep Blue': './images/model-y-deep-blue-metallic-performance.jpg',
+//   'Solid Black': './images/model-y-solid-black-performance.jpg',
+//   'Ultra Red': './images/model-y-ultra-red-performance.jpg',
+//   'Quick Silver': './images/model-y-quicksilver-performance.jpg',
+// };
 
 export const INTERIOR_IMAGES = {
   // TODO: Change model
