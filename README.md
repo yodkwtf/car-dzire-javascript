@@ -38,5 +38,5 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 ## Contact
 
 - **Email:** [48durgesh.kumar@gmail.com](mailto:48durgesh.kumar@gmail.com)
-- **LinkedIn:** [Durgesh Kumar](https://www.linkedin.com/in/durgesh-chaudhary/)
+- **LinkedIn:** [Durgesh Chaudhary](https://www.linkedin.com/in/durgesh-chaudhary/)
 - **GitHub:** [@yodkwtf](https://github.com/yodkwtf)
